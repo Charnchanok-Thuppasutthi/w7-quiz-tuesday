@@ -3,20 +3,11 @@ Block[] blocks;
 double sum = 0 ;
 int amount = 5; // amount of objects.
 boolean check_ball;
+float sizes ;
 
 void setup() { 
   size(600, 600);
   background(200);
-  /* balls = new Ball[amount];
-  blocks = new Block[amount];
-
-  for (int x = 0; x < amount; x++) {
-    balls[x] = new Ball(random(50, 550), random(50, 550), random(50, 250));
-    blocks[x] = new Block(random(50, 550), random(50, 550), random(50, 250));
-  }
-*/
-
-
   
   blocks = new Block[amount];
   
@@ -24,7 +15,8 @@ void setup() {
     blocks[i] = new Block(random(50, 550), random(50, 550), random(50, 250));
     blocks[i].balls = new Ball[amount];
     for (int j = 0 ; j < amount ; j++){
-      blocks[i].balls[j] =new Ball(blocks[i].positionX, blocks[i].positionY, blocks[i].size);
+      sizes = random(0,blocks[i].size/2);
+      blocks[i].balls[j] =new Ball(random(blocks[i].positionX,blocks[i].positionX+blocks[i].size-sizes), random(blocks[i].positionY,blocks[i].positionY+blocks[i].size-sizes), sizes);
     }
   
   }
